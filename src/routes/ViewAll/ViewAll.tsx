@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 interface ViewAllProps {
   newNoteCallback: () => void,
 }
@@ -6,9 +8,9 @@ function ViewAll(props: ViewAllProps) {
     <div className="header">
       <h1>All Notes</h1>
     </div>
-    <button className="new-note" onClick={props.newNoteCallback}>
+    <Link className="new-note"  to={"/new"}>
       New Note
-    </button>
+    </Link>
   </>
 }
 

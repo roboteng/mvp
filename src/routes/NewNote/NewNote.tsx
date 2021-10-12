@@ -1,15 +1,10 @@
 import './NewNote.css';
 import '../../Global.css';
+import { useState } from 'react';
 
-interface NewNoteProps {
-  title: string,
-  contents: string,
-  setTitle: (title: string) => void,
-  setContents: (title: string) => void,
-  submit: () => void,
-}
-
-export default function NewNote(props: NewNoteProps) {
+export default function NewNote() {
+  const [title, setTitle] = useState<string>('');
+  const [content, setContent] = useState<string>('');
   return (
     <>
       <div className="header">
@@ -21,20 +16,20 @@ export default function NewNote(props: NewNoteProps) {
             <p>Title:</p>
             <input
               type="text"
-              value={props.title}
-              onChange={(e) => props.setTitle(e.target.value)}
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
             ></input>
           </label>
           <label className="contents field">
             <p>Contents:</p>
             <textarea
               rows={20}
-              value={props.contents}
-              onChange={(e) => props.setContents(e.target.value)}
+              value={content}
+              onChange={(e) => setContent(e.target.value)}
             ></textarea>
           </label>
           <button
-          onChange={props.submit}
+            onChange={() => console.log("things", title, content)}
           >Save</button>
         </form>
       </main>

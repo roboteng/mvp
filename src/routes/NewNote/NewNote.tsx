@@ -1,8 +1,13 @@
 import './NewNote.css';
 import '../../Global.css';
 import { useState } from 'react';
+import Note from '../../models/Note';
 
-export default function NewNote() {
+interface NewNoteProps {
+  saveNote: (note: Note) => void,
+}
+
+export default function NewNote(props: NewNoteProps) {
   const [title, setTitle] = useState<string>('');
   const [content, setContent] = useState<string>('');
   return (
@@ -11,7 +16,7 @@ export default function NewNote() {
         <h1>New Note</h1>
       </div>
       <main>
-        <form>
+        <div>
           <label className="title field">
             <p>Title:</p>
             <input
@@ -29,9 +34,9 @@ export default function NewNote() {
             ></textarea>
           </label>
           <button
-            onChange={() => console.log("things", title, content)}
+            onClick={() => props.saveNote({ title, content })}
           >Save</button>
-        </form>
+        </div>
       </main>
     </>
   );

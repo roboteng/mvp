@@ -1,12 +1,18 @@
+import { Link } from "react-router-dom";
+import '../../Global.css';
 
-function ViewAll() {
+interface ViewAllProps {
+}
+function ViewAll(props: ViewAllProps) {
   return <>
     <div className="header">
       <h1>All Notes</h1>
     </div>
-    <button className="new-note">
-      New Note
-    </button>
+    <main>
+      <Link className="new-note" to={"/new"}>
+        New Note
+      </Link>
+    </main>
   </>
 }
 

@@ -7,8 +7,8 @@ import NewNote from './routes/NewNote/NewNote';
 import ViewAll from './routes/ViewAll/ViewAll';
 
 const App = () => {
-  const saveNote = (note: Note) => {
-    api.saveNote(note);
+  const saveNote = async (note: Note) => {
+    await api.saveNote(note);
   }
   return (
     <Router >

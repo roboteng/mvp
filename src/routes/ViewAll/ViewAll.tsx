@@ -3,9 +3,10 @@ import { Link } from "react-router-dom";
 import api from "../../api";
 import '../../Global.css';
 import SavedNote from "../../models/SavedNote";
+import NoteTile from "./NoteTile";
 
-interface ViewAllProps {
-}
+interface ViewAllProps { }
+
 function ViewAll(props: ViewAllProps) {
   const [notes, setNotes] = useState<SavedNote[]>([]);
   useEffect(() => {
@@ -18,10 +19,10 @@ function ViewAll(props: ViewAllProps) {
     <div className="header">
       <h1>All Notes</h1>
     </div>
-    {notes.map((note) => {
-      return <p>{note.title}</p>
-    })}
     <main>
+      {notes.map((note) => {
+        return <NoteTile note={note}/>
+      })}
       <Link className="new-note" to={"/new"}>
         New Note
       </Link>

@@ -9,9 +9,11 @@ interface ViewAllProps {
 function ViewAll(props: ViewAllProps) {
   const [notes, setNotes] = useState<SavedNote[]>([]);
   useEffect(() => {
-    api.getNotes()
-      .then((data) => setNotes(data));
-  });
+    (async () => {
+      const notes = await api.getNotes();
+      setNotes(notes);
+    })();
+  }, []);
   return <>
     <div className="header">
       <h1>All Notes</h1>

@@ -1,15 +1,31 @@
-import React, { ReactNode, useState } from 'react';
+import React from 'react';
 import './App.css';
+import NewNoteRoute from './routes/NewNote/NewNoteRoute';
 import Route from './routes/Route';
 import ViewAllRoute from './routes/ViewAll/ViewAllRoute';
 
-function App() {
-  const [route, setRoute] = useState<Route>(new ViewAllRoute());
-  return (
-    <>
-    {route.build()}
-    </>
-  );
+interface AppProps {}
+
+interface AppState {
+  route: Route
+}
+
+class App extends React.Component<AppProps, AppState> {
+  state: AppState = {
+    route: new ViewAllRoute(
+      () => {
+        this.setState({
+          route: new NewNoteRoute()
+        })
+      }),
+  }
+  render() {
+    return (
+      <>
+        {this.state.route.build()}
+      </>
+    );
+  }
 }
 
 export default App;

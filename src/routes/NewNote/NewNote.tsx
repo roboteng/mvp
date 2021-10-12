@@ -2,6 +2,7 @@ import './NewNote.css';
 import '../../Global.css';
 import { useState } from 'react';
 import Note from '../../models/Note';
+import { useHistory } from 'react-router-dom';
 
 interface NewNoteProps {
   saveNote: (note: Note) => void,
@@ -10,6 +11,7 @@ interface NewNoteProps {
 export default function NewNote(props: NewNoteProps) {
   const [title, setTitle] = useState<string>('');
   const [content, setContent] = useState<string>('');
+  const history = useHistory();
   return (
     <>
       <div className="header">
@@ -34,7 +36,10 @@ export default function NewNote(props: NewNoteProps) {
             ></textarea>
           </label>
           <button
-            onClick={() => props.saveNote({ title, content })}
+            onClick={() => {
+              props.saveNote({ title, content });
+              history.push('/');
+            }}
           >Save</button>
         </div>
       </main>

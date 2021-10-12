@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const getNotes = require('./api/getNotes.js');
 const postNote = require('./api/postNote.js');
 
 const port = 3001;
@@ -19,6 +20,8 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
+
+app.get('/api/notes', getNotes);
 app.post('/api/note', postNote);
 
 app.listen(port, ()=> {

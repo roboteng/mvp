@@ -3,6 +3,10 @@
   display: block;
 }
 
+.field .input {
+  padding: 4px;
+}
+
 p {
   display: block;
 }

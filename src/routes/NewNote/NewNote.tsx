@@ -23,14 +23,16 @@ export default function NewNote(props: NewNoteProps) {
             <p>Title:</p>
             <input
               type="text"
+              className="input"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
             ></input>
           </label>
-          <label className="contents field">
-            <p>Contents:</p>
+          <label className="content field">
+            <p>Content:</p>
             <textarea
               rows={20}
+              className="input"
               value={content}
               onChange={(e) => setContent(e.target.value)}
             ></textarea>

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import api from "../../api";
 import '../../Global.css';
 import SavedNote from "../../models/SavedNote";
@@ -18,6 +18,8 @@ function ViewAll(props: ViewAllProps) {
 
   useEffect(updateList, []);
 
+  const history = useHistory();
+
   return <>
     <div className="header">
       <h1>All Notes</h1>
@@ -26,7 +28,9 @@ function ViewAll(props: ViewAllProps) {
       {notes.map((note) => {
         return <NoteTile
           note={note}
-          editCallback={() => console.log('edit')}
+          editCallback={() => {
+            history.push(`/edit/${note.id}`)
+          }}
           deleteCallback={() => {
             api.deleteNote(note.id)
               .then(updateList)

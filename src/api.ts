@@ -13,6 +13,12 @@ const api = {
   deleteNote: (id: number) => {
     return axios.delete(`/api/note/${id}`)
   },
+  editNote: (id: number, note: Note) => {
+    return axios.put(`/api/note/${id}`, note);
+  },
+  getNote: (id: number): Promise<SavedNote> => {
+    return axios.get(`/api/note/${id}`);
+  }
 };
 
 export default api;

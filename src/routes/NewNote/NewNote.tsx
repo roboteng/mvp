@@ -19,7 +19,7 @@ export default function NewNote(props: NewNoteProps) {
       </div>
       <main>
         <div>
-          <label className="title field">
+          <label className="new-note-field">
             <p>Title:</p>
             <input
               type="text"
@@ -28,7 +28,7 @@ export default function NewNote(props: NewNoteProps) {
               onChange={(e) => setTitle(e.target.value)}
             ></input>
           </label>
-          <label className="content field">
+          <label className="new-note-field">
             <p>Content:</p>
             <textarea
               rows={20}

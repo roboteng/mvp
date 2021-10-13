@@ -1,4 +1,4 @@
-.tile {
+.note-tile {
   border-radius: 4px;
   border: 1px solid black;
   height: 3rem;
@@ -11,11 +11,11 @@
   justify-content: space-between
 }
 
-.title {
+.note-tile-title {
   font-weight: 700;
   font-size: large;
 }
 
-.content {
+.note-tile-content {
   color: #333;
 }

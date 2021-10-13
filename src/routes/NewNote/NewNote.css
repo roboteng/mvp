@@ -1,9 +1,9 @@
 
-.field {
+.new-note-field {
   display: block;
 }
 
-.field .input {
+.new-note-field .input {
   padding: 4px;
 }
 

@@ -22,5 +22,28 @@ CREATE TABLE note (
   content VARCHAR(100)
 );
 
+CREATE TABLE tag (
+  id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  title VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE link (
+  id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  tag_id INT NOT NULL,
+  note_id INT NOT NULL,
+  FOREIGN KEY (tag_id) REFERENCES tag(id),
+  FOREIGN KEY (note_id) REFERENCES note(id)
+);
+
 INSERT INTO note (title, content)
 VALUES ('Make the DB work', 'It should read this');
+
+INSERT INTO tag (title)
+VALUES ('Sample');
+
+INSERT INTO link (tag_id, note_id)
+VALUES (1, 1);
+
+/*
+SELECT note.id, note.title, note.content, tag.title FROM note JOIN link ON note.id=link.note_id JOIN tag ON tag.id=link.tag_id;
+*/

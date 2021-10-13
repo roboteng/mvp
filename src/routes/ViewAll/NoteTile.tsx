@@ -16,8 +16,8 @@ function NoteTile(props: NoteTileProps) {
       onMouseLeave={() => changeShowDelete(false)}
     >
       <div>
-        <p>{props.note.title}</p>
-        <p>{props.note.content}</p>
+        <p className="title">{props.note.title}</p>
+        <p className="content">{props.note.content}</p>
       </div>
       {showDelete
         ? <button onClick={props.deleteCallback}>Delete</button>

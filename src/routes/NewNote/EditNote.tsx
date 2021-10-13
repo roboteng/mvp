@@ -12,7 +12,6 @@ interface EditNoteProps {
 export default function EditNote(props: EditNoteProps) {
   const history = useHistory();
   const id = parseInt(useParams<{ id: string }>().id);
-  console.log(id);
 
   const [note, setNote] = useState<SavedNote | null>(null);
   useEffect(() => {
@@ -21,8 +20,6 @@ export default function EditNote(props: EditNoteProps) {
       setNote(n);
     })();
   }, [id]);
-
-  console.log(note);
 
   return (
     note !== null

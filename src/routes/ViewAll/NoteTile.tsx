@@ -4,6 +4,7 @@ import { useState } from 'react';
 
 interface NoteTileProps {
   note: SavedNote,
+  deleteCallback: () => void,
 }
 
 function NoteTile(props: NoteTileProps) {
@@ -18,7 +19,9 @@ function NoteTile(props: NoteTileProps) {
         <p>{props.note.title}</p>
         <p>{props.note.content}</p>
       </div>
-      {showDelete ? <button>Delete</button> : null}
+      {showDelete
+        ? <button onClick={props.deleteCallback}>Delete</button>
+        : null}
     </div>
   )
 }

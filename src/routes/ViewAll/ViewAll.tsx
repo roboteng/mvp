@@ -9,19 +9,25 @@ interface ViewAllProps { }
 
 function ViewAll(props: ViewAllProps) {
   const [notes, setNotes] = useState<SavedNote[]>([]);
-  useEffect(() => {
+  const updateList = () => {
     (async () => {
       const notes = await api.getNotes();
       setNotes(notes);
     })();
-  }, []);
+  };
+
+  useEffect(updateList, []);
+
   return <>
     <div className="header">
       <h1>All Notes</h1>
     </div>
     <main>
       {notes.map((note) => {
-        return <NoteTile note={note}/>
+        return <NoteTile note={note} deleteCallback={() => {
+          api.deleteNote(note.id)
+            .then(updateList)
+        }} />
       })}
       <Link className="new-note" to={"/new"}>
         New Note

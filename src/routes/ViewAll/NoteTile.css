@@ -1,4 +1,9 @@
 .tile {
   border-radius: 4px;
   border: 1px solid black;
+  height: 3rem;
+  margin: 8px 0;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
 }

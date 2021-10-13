@@ -4,6 +4,7 @@ import { useState } from 'react';
 
 interface NoteTileProps {
   note: SavedNote,
+  editCallback: () => void,
   deleteCallback: () => void,
 }
 
@@ -20,7 +21,10 @@ function NoteTile(props: NoteTileProps) {
         <p className="note-tile-content">{props.note.content}</p>
       </div>
       {showDelete
-        ? <button onClick={props.deleteCallback}>Delete</button>
+        ? <div>
+          <button onClick={props.editCallback}>Edit</button>
+          <button onClick={props.deleteCallback}>Delete</button>
+        </div>
         : null}
     </div>
   )

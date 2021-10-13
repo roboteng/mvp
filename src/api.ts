@@ -13,6 +13,13 @@ const api = {
   deleteNote: (id: number) => {
     return axios.delete(`/api/note/${id}`)
   },
+  editNote: (id: number, note: Note) => {
+    return axios.put(`/api/note/${id}`, note);
+  },
+  getNote: async (id: number): Promise<SavedNote> => {
+    const x = await axios.get(`/api/note/${id}`);
+    return x.data as SavedNote;
+  }
 };
 
 export default api;

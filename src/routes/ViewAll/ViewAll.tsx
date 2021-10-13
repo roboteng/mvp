@@ -24,10 +24,14 @@ function ViewAll(props: ViewAllProps) {
     </div>
     <main>
       {notes.map((note) => {
-        return <NoteTile note={note} deleteCallback={() => {
-          api.deleteNote(note.id)
-            .then(updateList)
-        }} />
+        return <NoteTile
+          note={note}
+          editCallback={() => console.log('edit')}
+          deleteCallback={() => {
+            api.deleteNote(note.id)
+              .then(updateList)
+          }}
+        />
       })}
       <Link className="new-note" to={"/new"}>
         New Note

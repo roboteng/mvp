@@ -16,8 +16,9 @@ const api = {
   editNote: (id: number, note: Note) => {
     return axios.put(`/api/note/${id}`, note);
   },
-  getNote: (id: number): Promise<SavedNote> => {
-    return axios.get(`/api/note/${id}`);
+  getNote: async (id: number): Promise<SavedNote> => {
+    const x = await axios.get(`/api/note/${id}`);
+    return x.data as SavedNote;
   }
 };
 

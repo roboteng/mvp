@@ -16,21 +16,25 @@ export default function EditNote(props: EditNoteProps) {
 
   const [note, setNote] = useState<SavedNote | null>(null);
   useEffect(() => {
-    (async() => {
+    (async () => {
       const n = await api.getNote(id);
       setNote(n);
     })();
   }, [id]);
 
+  console.log(note);
+
   return (
-    <NoteEditor
-      title="Edit Note"
-      startingTitle={note?.title || ""}
-      startingContent={note?.content || ""}
-      onSave={(note) => {
-        props.editNote(id, note);
-        history.push("/");
-      }}
-    />
+    note !== null
+      ? <NoteEditor
+        title="Edit Note"
+        startingTitle={note.title}
+        startingContent={note.content}
+        onSave={(note) => {
+          props.editNote(id, note);
+          history.push("/");
+        }}
+      />
+      : <></>
   );
 }

@@ -11,13 +11,13 @@ function NoteTile(props: NoteTileProps) {
   const [showDelete, changeShowDelete] = useState(false);
   return (
     <div id={props.note.id.toString()}
-      className="tile"
+      className="note-tile"
       onMouseEnter={() => changeShowDelete(true)}
       onMouseLeave={() => changeShowDelete(false)}
     >
       <div>
-        <p>{props.note.title}</p>
-        <p>{props.note.content}</p>
+        <p className="note-tile-title">{props.note.title}</p>
+        <p className="note-tile-content">{props.note.content}</p>
       </div>
       {showDelete
         ? <button onClick={props.deleteCallback}>Delete</button>

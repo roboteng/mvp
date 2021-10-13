@@ -1,6 +1,10 @@
 
-.field {
+.new-note-field {
   display: block;
+}
+
+.new-note-field .input {
+  padding: 4px;
 }
 
 p {

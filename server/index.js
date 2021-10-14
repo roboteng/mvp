@@ -19,16 +19,15 @@ app.use((req, res, next) => {
   next();
 })
 
-app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
-});
-
-
 app.get('/api/notes', getNotes);
 app.post('/api/note', postNote);
 app.delete('/api/note/:id', deleteNote);
 app.get('/api/note/:id', getNote);
 app.put('/api/note/:id', putNote);
+
+app.get('*', function (req, res) {
+  res.sendFile(path.join(__dirname, '..', 'build', 'index.html'));
+});
 
 app.listen(port, ()=> {
   console.log(`Listening on http://localhost:${port}`)

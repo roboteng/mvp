@@ -13,5 +13,7 @@ main {
 }
 
 .header {
-  background-color: darkmagenta;
+  background-color: magenta;
+  display: flex;
+  justify-content: space-around;
 }

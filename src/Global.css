@@ -8,8 +8,9 @@
 }
 
 main {
-  margin: 16px auto;
+  margin: 0 auto;
   max-width: 720px;
+  padding: 16px;
 }
 
 .header {

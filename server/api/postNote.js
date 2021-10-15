@@ -10,11 +10,9 @@ const postNote = (req, res, next) => {
       } else {
         res.status(201).send();
       }
-      next();
     })
   } else {
     res.status(400).send("title must be provided");
-    next();
   }
 };
 

@@ -10,11 +10,9 @@ const deleteNote = (req, res, next) => {
         } else {
           res.status(202).send(results);
         }
-        next();
       });
   } else {
     res.status(400).send();
-    next();
   }
 };
 

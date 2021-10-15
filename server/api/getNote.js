@@ -11,18 +11,14 @@ const getNote = (req, res, next) => {
           if (err) {
             res.status(500).send();
           } else {
-            console.log(results);
             res.status(200).send(results[0]);
           }
-          next();
         });
     } else {
     res.status(400).send();
-    next();
     }
   } else {
     res.status(400).send();
-    next();
   }
 };
 

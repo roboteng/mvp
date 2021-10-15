@@ -8,10 +8,13 @@
 }
 
 main {
-  margin: 16px auto;
+  margin: 0 auto;
   max-width: 720px;
+  padding: 16px;
 }
 
 .header {
-  background-color: darkmagenta;
+  background-color: magenta;
+  display: flex;
+  justify-content: space-around;
 }

@@ -13,11 +13,9 @@ const putNote = (req, res, next) => {
         } else {
           res.status(204).send(results);
         }
-        next();
       });
   } else {
     res.status(400).send();
-    next();
   }
 };
 

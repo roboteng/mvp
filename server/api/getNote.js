@@ -14,15 +14,12 @@ const getNote = (req, res, next) => {
             console.log(results);
             res.status(200).send(results[0]);
           }
-          next();
         });
     } else {
     res.status(400).send();
-    next();
     }
   } else {
     res.status(400).send();
-    next();
   }
 };
 
